@@ -2,6 +2,7 @@
 Данный docker-compose предназначен для разворачивания сервисов:
 - СУБД Postgres
 - Airflow
+- Redis
 
 ## Инструкция по развертыванию
 https://github.com/Nastya224/1_T_Data_Data_engineer/blob/main/3.3_Postgres%2BPython%2BAirflow.%20Dag_parsing_currency/Deploy.md
