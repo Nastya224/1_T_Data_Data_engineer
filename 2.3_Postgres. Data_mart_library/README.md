@@ -11,6 +11,6 @@ docker build.
 ```
 4. Запустить команду для запуска контейнера (при запущенном Docker engine)
 ```
-docker run --rm --name test -e POSTGRES_PASSWORD=test –p 5432:5432 -v
+docker run --rm --name potgres -e POSTGRES_PASSWORD=potgres –p 5432:5432 -v
 $(pwd)/data:/var/lib/postgresql/data -d postgres
 ```
