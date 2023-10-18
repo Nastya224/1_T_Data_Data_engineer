@@ -5,7 +5,7 @@
 - Redis
 
 ## Инструкция по развертыванию
-https://github.com/Nastya224/1_T_Data_Data_engineer/blob/main/3.3_Postgres%2BPython%2BAirflow.%20Dag_parsing_currency/Deploy.md
+(https://github.com/Nastya224/1_T_Data_Data_engineer/blob/main/3.4_Postgres%2BPython%2BAirflow.%20Dag_updated_syntaxis/Deploy.md)
 
 ## Параметры соединения
 
