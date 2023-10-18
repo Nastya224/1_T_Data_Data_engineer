@@ -6,5 +6,6 @@
 ```
 docker-compose up -d
 ```
-5. В результате запустятся все контейнеры. Контейнер с app за пару минут отработает и остановится.
-![image](https://github.com/Nastya224/1_T_Data_Data_engineer/assets/94219446/cec6c1b5-64b1-416b-8e84-5874946ce437)
+5. В результате запустятся все контейнеры. Контейнер airflow_init за пару минут отработает и остановится.
+![image](https://github.com/Nastya224/1_T_Data_Data_engineer/assets/94219446/e7c84878-6457-492e-9ad4-bd7c79240b69)
+
