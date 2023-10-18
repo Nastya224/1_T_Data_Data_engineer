@@ -1,0 +1,16 @@
+[
+  {
+    "database": "postgres",
+    "index": "vacancy",
+    "nodes": {
+      "table": "vacancies"
+    }
+  },
+  {
+    "database": "postgres",
+    "index": "resume",
+    "nodes": {
+      "table": "resumes"
+    }
+  }
+]
