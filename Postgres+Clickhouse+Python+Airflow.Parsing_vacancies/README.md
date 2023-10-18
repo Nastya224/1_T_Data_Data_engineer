@@ -2,10 +2,8 @@
 Данный docker-compose предназначен для разворачивания сервисов:
 - сервисы Airflow
 - СУБД Postgres
-- СУБД Elastic
-- kibana 
+- СУБД ClickHouse
 - redis 
-- pgsync (сервис для синхронизации данных между Postgres и Elastic)
 
 ### Инструкция по развертыванию
 https://github.com/Nastya224/1_T_Data_Data_engineer/blob/076936aa4bf3a546a7a4504837aaca2ef8d41d24/Postgres%2BClickhouse%2BPython%2BAirflow.Parsing_vacancies/Deploy.md
