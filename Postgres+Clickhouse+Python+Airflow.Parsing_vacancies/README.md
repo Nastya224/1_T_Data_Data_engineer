@@ -1,3 +1,18 @@
-# Clickhouse1
+### Содержание
 
-![Концептуальная_схема](https://github.com/Nastya224/Clickhouse1/assets/94219446/50a9a03e-73e9-450c-8427-ffc3fd603a64)
+Данный docker-compose предназначен для разворачивания сервисов:
+- сервисы Airflow
+- СУБД Postgres
+- СУБД Elastic
+- kibana 
+- redis 
+- pgsync (сервис для синхронизации данных между Postgres и Elastic)
+
+### Инструкция по развертыванию
+https://github.com/Nastya224/Elastic1/blob/7d1f1a3ddc02158b1ac7d92b22a3ad659283170d/Deploy.md
+
+
+После развертывания можно запустить два дага в Airflow: 
+1) Загрузка данных по вакансиям с сайта Хабр. Карьера
+2) Выгрузка всех данных из СУБД Elastic в консоль (синхронизация c Postgres произойдет автоматически через сервис pgsync)
+
