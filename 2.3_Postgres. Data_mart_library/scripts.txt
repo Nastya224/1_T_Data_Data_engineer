@@ -1,0 +1,57 @@
+--sql-запросы к БД «Библиотека»
+--1.Определить, сколько книг прочитал каждый читатель в текущем году. Вывести рейтинг читателей по убыванию.
+select distinct readercardid, surname, readername,
+count(bookid) filter(where datereturn between '2023-01-01' and '2023-12-31') over (partition by readercardid)
+as amount_readed_books_2023
+from public.reader_book
+right outer join public.reader_card using (readercardid)
+order by 4 desc;
+
+--2.Определить, сколько книг у читателей на руках на текущую дату.
+select count(bookid)
+from public.reader_book
+where datereturn is null and dateissue < '2023-07-16';
+
+--3.Определить читателей, у которых на руках определенная книга.
+--для примера указана конкретная книга
+select readercardid, bookid, surname, readername
+from public.reader_book
+inner join public.book using (bookid)
+inner join public.reader_card using (readercardid)
+where datereturn is null and bookname = 'Остров желаний';
+
+--4.Определите, какие книги на руках читателей.
+select readercardid, bookid, bookname
+from public.reader_book
+inner join public.book using (bookid)
+where datereturn is null;
+
+--5.Вывести количество должников на текущую дату. 
+select count( distinct readercardid)
+from public.reader_book
+where datereturn is null;
+
+--6.Книги какого издательства были самыми востребованными у читателей? Отсортируйте издательства по убыванию востребованности книг.
+select distinct publisherid, publishername,
+count(bookid) over (partition by publisherid)
+as amount_readed_books_2023
+from public.reader_book
+inner join public.book using (bookid)
+inner join public.publisher using (publisherid)
+order by 3 desc;
+
+--7.Определить самого издаваемого автора.
+select distinct authorid, author,
+sum (Volume) over (partition by authorid) as pages
+from public.author
+join public.book_author using (authorid)
+join public.book using (bookid)
+order by 3 desc;
+
+
+--8.Определить среднее количество прочитанных страниц читателем за день.
+select readercardid, avg (volume/ (datereturn-dateissue)) as avg_readed_pages
+from public.book
+join public.reader_book using (bookid)
+where datereturn is not null
+group by readercardid;

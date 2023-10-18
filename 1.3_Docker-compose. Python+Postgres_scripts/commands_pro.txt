@@ -1,0 +1,11 @@
+# Команды
+# Переместиться в папку с докер файлом
+cd C:\Users\User\Desktop\HW1_3\docker_files
+# Создать docker-compose
+docker-compose up
+# Посмотреть списки образов и найти номер нужного образа
+docker-compose ps
+# Остановить контейнер
+docker-compose stop
+
+
