@@ -14,7 +14,6 @@
 ## Результат запуска Docker-compose
 Даг "BTC_currency" каждые 10 минут: 1) выводит приветствие 2) по API выгружает инфо о текущем курсе биткоина 3) загружает полученные данные в табличку в Postgres
 
-![image](https://github.com/Nastya224/1_T_Data_Data_engineer/assets/94219446/f322f00e-1178-4518-a4e6-762436010daa)
 
 
 
