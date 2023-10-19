@@ -9,6 +9,7 @@ https://github.com/Nastya224/1_T_Data_Data_engineer/blob/main/3.2_Postgres%2BPyt
 
 ## Результат запуска Docker-compose
 
-![image](https://github.com/Nastya224/1_T_Data_Data_engineer/assets/94219446/4bea5b71-6e6c-4095-af2d-73aadbb49967)
+![image](https://github.com/Nastya224/1_T_Data_engineer/assets/94219446/d9d0a338-cab3-480c-b32d-5c31716159c3)
+
 
 
