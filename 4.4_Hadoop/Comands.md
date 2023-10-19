@@ -36,8 +36,6 @@ docker exec -it 526a47789664 bash
 cd usr/data
 hdfs dfs -copyFromLocal vim1234.txt /user/nastya_golunova
 ```
-Результат (интерфейс Hue):
-![2](https://github.com/Nastya224/4.4/assets/94219446/eab04d82-27b5-4e9c-a809-0ab397c8d9e1)
 
 * Выполняем команду, которая
 выводит содержимое  личной папки
@@ -50,7 +48,6 @@ Found 1 items
 
 * Устанавливаем режим доступа, который дает полный доступ для владельца файла, а для сторонних пользователей возможность читать и выполнять.
 Код доступа: 755
-![1](https://github.com/Nastya224/4.4/assets/94219446/3e10a9d2-efb3-4dbb-96f8-93495563ce32)
 
 ```
 hadoop fs -chmod 755 /user/nastya_golunova/vim1234.txt
@@ -101,7 +98,4 @@ hadoop fs -cat /user/nastya_golunova/vim1234.txt | wc -l
 ```
 Вывод: 10272
 
-## Результат в Hue
-
-![3](https://github.com/Nastya224/4.4/assets/94219446/8e461039-f0c2-4e9e-a974-292ba4a0107b)
 
