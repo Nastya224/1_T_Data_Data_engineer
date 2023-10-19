@@ -39,7 +39,7 @@ with conn.cursor() as cur:
 cursor=conn.cursor()
 with conn.cursor() as cur:
 #Запрашиваем валюты, месяц и дату с максимальным курсом
- cur.execute("select cast (EXTRACT(MONTH FROM Date_Rate) as VARCHAR (2)) as Month, Currency1, Currency2, Date_Rate from rates where Rate IN (select max(Rate) from rates)")
+ cur.execute("select Date_Rate from rates where Rate IN (select max(Rate) from rates)")
  date_max = cur.fetchone()
 #Запрашиваем дату с минимальным курсом
  cur.execute("select Date_Rate from rates where Rate IN (select min(Rate) from rates)")
@@ -58,12 +58,12 @@ with conn.cursor() as cur:
  rate_last_date = cur.fetchone()   
       
 #Соединяем полученные значения в кортеж
-info = (date_max + date_min + rate_max + rate_min + rate_avg + rate_last_date)
+info = (date_max+ rate_max + date_min  + rate_min + rate_avg + rate_last_date)
 
 #Выполняем несколько запросов в СУБД: 1) по созданию таблицы для расчетов 2) вставке рассчитанных значений
 cursor=conn.cursor()
 with conn.cursor() as cur:
-    cur.execute("CREATE TABLE IF NOT EXISTS public.rate_key_values (Month VARCHAR (2), Currency1 VARCHAR (3), Currency2 VARCHAR (3), Date_max DATE, Date_min DATE, Rate_max FLOAT, Rate_min FLOAT, Rate_avg FLOAT, Rate_last_day FLOAT);")
-    cur.executemany("INSERT INTO public.rate_key_values (Month, Currency1, Currency2, Date_max, Date_min, Rate_max, Rate_min, Rate_avg, Rate_last_day) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s);", [info])
+    cur.execute("CREATE TABLE IF NOT EXISTS public.rate_key_values (date_max_rate DATE, max_val_rate FLOAT, date_min_rate DATE,  min_val_rate FLOAT, avg_rate FLOAT, last_day_rate FLOAT);")
+    cur.executemany("INSERT INTO public.rate_key_values (date_max_rate, max_val_rate, date_min_rate,  min_val_rate, avg_rate, last_day_rate) VALUES(%s, %s, %s, %s, %s, %s);", [info])
     conn.commit()
     cur.close()
